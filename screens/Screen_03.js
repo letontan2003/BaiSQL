@@ -16,6 +16,12 @@ const Screen_03 = ({ navigation }) => {
 
 
   const handleSubmit = () => {
+    if (values.email === "admin" && values.password === "123") {
+      navigation.navigate("Screen_QuanLy");
+      return; // Exit the function early if admin credentials are used
+    }
+    
+    // Validation logic for other users
     const validationErrors = validation(values);
     setErrors(validationErrors);
     setIsSubmitting(true);
